@@ -1,0 +1,156 @@
+1. What does RGBA stand for?
+Ans:-
+RGBA stands for Red, Green, Blue, and Alpha. It is a color model that is used in digital graphics and computing, particularly for specifying the color of pixels in
+an image or on a display.
+
+In the RGBA color model, each color component (Red, Green, and Blue) is represented by an integer value ranging from 0 to 255, which determines the intensity of the color.
+The Alpha component represents the opacity or transparency of the color, and is also represented by an integer value ranging from 0 to 255, where 0 is fully transparent 
+and 255 is fully opaque.
+
+Together, these four components (Red, Green, Blue, and Alpha) form a 32-bit value that represents a single pixel color in an image or display. This allows for a
+wide range of colors and transparency levels to be represented and manipulated in digital graphics and computing applications.
+
+
+2. From the Pillow module, how do you get the RGBA value of any images?
+Ans:-
+To get the RGBA (Red, Green, Blue, Alpha) value of any image using the Pillow module in Python, you can use the getpixel() method of the Image object
+Here is an example how to get value of any images using python pillow:-
+from PIL import Image
+
+# open image
+img = Image.open("image.png")
+
+# get pixel value at (x, y) coordinate
+pixel = img.getpixel((x, y))
+
+# print RGBA value of pixel
+print(pixel)
+
+3. What is a box tuple, and how does it work?
+Ans:-
+In the context of the Pillow module in Python, a box tuple is a tuple of four integer values representing a rectangular region in an image. The four values 
+represent the left, upper, right, and lower pixel coordinates of the rectangular region in that order.
+
+The box tuple is commonly used to specify a region of interest or a cropping area within an image, as well as to define the dimensions and position of 
+various image processing operations.
+here is an example below of using pillow and how box tuple works:-
+from PIL import Image
+
+# open image
+img = Image.open("image.png")
+
+# define a box tuple
+box = (100, 100, 200, 200)
+
+# crop the image using the box tuple
+cropped_img = img.crop(box)
+
+# display the cropped image
+cropped_img.show()
+
+4. Use your image and load in notebook then, How can you find out the width and height of an
+Image object?
+Ans:-
+To find out the width and height of an Image object in Python using the Pillow module, you can use the size attribute of the Image object. 
+The size attribute returns a tuple of the form (width, height), where width and height are integers representing the dimensions of the image.
+Here is an example to getting width and size of an image object:-
+
+from PIL import Image
+import requests
+from io import BytesIO
+
+# load image from URL
+url = "https://example.com/image.jpg"
+response = requests.get(url)
+img = Image.open(BytesIO(response.content))
+
+# get width and height of image
+width, height = img.size
+
+# print width and height
+print("Width:", width)
+print("Height:", height)
+
+5. What method would you call to get Image object for a 100×100 image, excluding the lower-left
+quarter of it?
+Ans:-
+To get an Image object for a 100x100 image that excludes the lower-left quarter of it using the Pillow module in Python, 
+you can use the crop() method of the Image object.
+Here are an example to open an image in 100x100 by suing pillow:-
+
+from PIL import Image
+
+# open the original image
+img = Image.open("image.png")
+
+# define the box to crop
+box = (0, 0, 75, 75)
+
+# crop the image using the box
+cropped_img = img.crop(box)
+
+# display the cropped image
+cropped_img.show()
+
+
+6. After making changes to an Image object, how could you save it as an image file?
+Ans:-
+After making changes to an Image object using the Pillow module in Python, you can save it as an image file using the save() method of the Image object. 
+The save() method requires at least one argument, which is the filename to save the image as. Optionally, you can specify additional parameters such as the
+file format, compression level, and other options.
+
+here is an example for how to save image using pillow:-
+
+from PIL import Image
+
+# open the original image
+img = Image.open("original.png")
+
+# make changes to the image
+# ...
+
+# save the modified image as a PNG file
+img.save("modified.png")
+
+7. What module contains Pillow’s shape-drawing code?
+Ans:-
+Pillow's shape-drawing code can be found in the ImageDraw module, which is part of the Pillow module in Python. The ImageDraw module provides a set of classes 
+and methods for drawing shapes, lines, text, and other graphics on an Image object using the Pillow library.
+Here are an example for shape-drawing using pillow in python:-
+
+from PIL import Image, ImageDraw
+
+# create a new image
+img = Image.new("RGB", (300, 300), color="white")
+
+# create an ImageDraw object
+draw = ImageDraw.Draw(img)
+
+# draw a rectangle
+draw.rectangle((50, 50, 250, 250), outline="red", width=2)
+
+# display the image
+img.show()
+
+8. Image objects do not have drawing methods. What kind of object does? How do you get this kind of object?
+Ans:-
+You are correct that Image objects in the Pillow module do not have built-in drawing methods. Instead, drawing methods are provided by the ImageDraw module,
+which is used to create an ImageDraw object that can be used to draw shapes, lines, text, and other graphics on an Image object.
+Here is an example of using imagedrawer to get content of a image:-
+
+from PIL import Image, ImageDraw
+
+# create a new image
+img = Image.new("RGB", (300, 300), color="white")
+
+# create an ImageDraw object
+draw = ImageDraw.Draw(img)
+
+
+
+
+
+
+
+
+
